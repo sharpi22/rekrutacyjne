@@ -33,7 +33,7 @@ class Factory implements FactoryInterface
     public function getSupplier($supplierName): SupplierInterface
     {
         if(class_exists($supplierName)){
-            return new $supplierName;
+            return new $supplierName($this->parserFactory->getParser($supplierName));
         } else {
             throw new InvalidSupplierException('Supplier class '.$supplierName.'not found');
         }

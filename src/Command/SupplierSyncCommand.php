@@ -3,6 +3,8 @@
 namespace App\Command;
 
 use App\Exception\InvalidParserException;
+use App\Parser\ParserFactory;
+use App\Supplier\Factory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -42,8 +44,10 @@ class SupplierSyncCommand extends Command
         $io->info('Synchronising supplier ' . $name);
 
         try {
-            //todo Get the products
 
+            $supplierFactory = new Factory();
+            $supplier = $supplierFactory->getSupplier($name);
+            $products = $supplier->getProducts();
             $table = new Table($output);
             $table->setHeaders(array('ID', 'Name', 'Desc'))->setRows($products);
             $table->render();

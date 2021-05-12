@@ -7,7 +7,7 @@ use http\Header\Parser;
 use App\Parser\Supplier1Parser;
 use App\Parser\FactoryInterface as ParserFactoryInterface;
 
-class Factory implements ParserFactoryInterface{
+class ParserFactory implements ParserFactoryInterface{
 
     public function getParser(string $type): ParserInterface
     {

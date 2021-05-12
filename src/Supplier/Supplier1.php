@@ -2,6 +2,8 @@
 
 namespace App\Supplier;
 
+const _DOMAIN_NAME_ = 'public.test';
+
 class Supplier1 extends SupplierAbstract
 {
     public static function getName(): string
@@ -16,11 +18,11 @@ class Supplier1 extends SupplierAbstract
 
     protected function parseResponse(): array
     {
-
+        return $this->parser->parse($this->getResponse());
     }
 
     protected function getResponse(): string|bool
     {
-        return file_get_contents('http://localhost/suppliers/supplier1.xml');
+        return file_get_contents('http://'._DOMAIN_NAME_.'/suppliers/supplier1.xml');
     }
 }

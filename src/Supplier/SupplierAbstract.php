@@ -28,6 +28,6 @@ abstract class SupplierAbstract implements SupplierInterface
 
     public function getProducts(): array
     {
-        //todo Get the products
+        
     }
 }

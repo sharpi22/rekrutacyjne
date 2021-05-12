@@ -7,12 +7,12 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class Supplier1Parser implements ParserInterface{
 
-    const _SOURCE_FILE_ = string $projectDir;
+
 
     public function _construct(Crawler $crawler)
     {
         $this->crawler = $crawler;
-             
+
     }
 
     public static function getType(): string
@@ -22,7 +22,8 @@ class Supplier1Parser implements ParserInterface{
 
     public function parse(string $content): array
     {
-
+        echo 'dupa';
+        die();
     }
 
 }
